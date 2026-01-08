@@ -1,0 +1,624 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Share+Tech+Mono&display=swap');
+
+:root {
+    --fg-pb-green: 26, 255, 128;
+    --fg-pb-blue: 46, 207, 255;
+    --fg-pb-amber: 255, 182, 66;
+    --fg-pb-white: 192, 255, 255;
+
+    --fo-fg: var(--fg-pb-green);
+    --fo-bg: var(--fg-pb-green), 0.25;
+
+
+     padding: 0;
+     margin: 0;
+     text-align: center;
+     background-color: #2a2c34;
+     font-size: 64.5%;
+     
+}
+
+
+.body {
+      width: 100%;
+      height: 100%;
+      cursor: url('./cursor/nukec-cursor.png'), url('./cursor/nukec-cursor.png'), auto;
+      display: flex;
+      flex-direction: column;
+}
+
+
+
+.fo-blue {
+    --fo-fg: var(--fg-pb-blue);
+    --fo-bg: var(--fg-pb-blue), 0.25;
+}
+
+.fo-amber {
+    --fo-fg: var(--fg-pb-amber);
+    --fo-bg: var(--fg-pb-amber), 0.25;
+}
+
+.fo-white {
+    --fo-fg: var(--fg-pb-white);
+    --fo-bg: var(--fg-pb-white), 0.25;    
+
+
+     z-index: 10;
+     position: absolute;
+     font-size: 60px;
+}
+
+ 
+
+.fo-ui {
+    font-family: 'Roboto', sans-serif, system-ui;
+}
+
+.fo-terminal {
+    font-family: 'Share Tech Mono', monospace, system-ui;
+}
+
+.fo-selection *::selection {
+    background-color: rgb(var(--fo-fg));
+    color: black;
+}
+
+.fg-pb {
+    color: rgb(var(--fo-fg));
+}
+
+.fo-link {
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+}
+
+.bg-pb {
+    background-color: rgba(var(--fo-bg));
+}
+
+.fo-glow {
+    text-shadow: 0 0 .25rem rgb(var(--fo-fg)), 0 0 1rem rgb(var(--fo-fg));
+}
+
+.fo-shadow {
+    box-shadow: 0 0 .25rem rgba(var(--fo-bg)), 0 0 1rem rgba(var(--fo-bg));
+}
+
+@keyframes crtAnimation {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 0 10000%;
+    }
+}
+
+.bg-terminal {
+    position: relative;
+    box-shadow: inset 0px 0px 2rem;
+    background-image: linear-gradient(0deg, #0000 10%, #fff1 90%, #0000 100%);
+    animation: crtAnimation 100s linear infinite;
+    background-size: 100% 80%;
+}
+
+.bg-terminal::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    pointer-events: none;
+    background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15) 1px, transparent 1px, transparent 2px);
+}
+
+.fo-progress {
+    background-color: transparent;
+    border: 2px solid rgb(var(--fo-fg));
+    border-radius: 0;
+    height: 1rem;
+
+    &::-webkit-progress-bar {
+        background-color: transparent;
+    }
+    &::-webkit-progress-value {
+        background-color: rgb(var(--fo-fg));
+        border-radius: 0;
+    }
+    &::-moz-progress-bar {
+        background-color: rgb(var(--fo-fg));
+        border-radius: 0;
+    }
+    &:indeterminate::-moz-progress-bar {
+        background-color: transparent;
+    }
+}
+
+.fo-tabs {
+    display: grid;
+    align-items: flex-start;
+    position: relative;
+    padding: 0 2rem;
+}
+
+.fo-tabs::before {
+    content: "";
+    position: absolute;
+    border-top: 2px solid rgb(var(--fo-fg));
+    border-left: 2px solid rgb(var(--fo-fg));
+    width: 2rem;
+    height: 8px;
+    bottom: -6px;
+    left: 0;
+}
+
+.fo-tabs::after {
+    content: "";
+    position: absolute;
+    border-top: 2px solid rgb(var(--fo-fg));
+    border-right: 2px solid rgb(var(--fo-fg));
+    width: 2rem;
+    height: 8px;
+    bottom: -6px;
+    right: 0;
+}
+
+.fo-tab {
+    position: relative;
+    grid-row-start: 1;
+    display: inline-flex;
+    font-weight: 700;
+    text-transform: uppercase;
+    height: 2rem;
+    font-size: 1.25rem;
+    line-height: 2.25rem;
+    cursor: pointer;
+    user-select: none;
+    appearance: none;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: rgb(var(--fo-fg));
+    border-color: rgb(var(--fo-fg));
+    border-bottom-width: 2px;
+}
+
+.fo-tab-active {
+    border-bottom-width: 0;
+}
+
+.fo-tab-active::before {
+    content: "";
+    position: absolute;
+    border-top: 2px solid rgb(var(--fo-fg));
+    border-left: 2px solid rgb(var(--fo-fg));
+    width: 8px;
+    height: 60%;
+    bottom: 0;
+    left: 0;
+}
+
+.fo-tab-active::after {
+    content: "";
+    position: absolute;
+    border-top: 2px solid rgb(var(--fo-fg));
+    border-right: 2px solid rgb(var(--fo-fg));
+    width: 8px;
+    height: 60%;
+    bottom: 0;
+    right: 0;
+}
+
+.fo-btn {
+    display: inline-flex;
+    cursor: pointer;
+    text-transform: uppercase;
+    user-select: none;
+    appearance: none;
+    cursor: pointer;
+    font-weight: 700;
+    background-color: rgb(var(--fo-fg));
+    padding: 0.25rem;
+    transition: background-color 0.1s;
+}
+
+.fo-btn:hover {
+    background-color: rgb(var(--fo-fg), 0.75);
+}
+
+.fo-list > li {
+    position: relative;
+    padding-left: 1rem;
+}
+
+.fo-list > li:before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    background-color: rgb(var(--fo-fg));
+}
+
+.fo-input[type=text], textarea.fo-input {
+    background-color: rgb(var(--fo-bg));
+    color: rgb(var(--fo-fg));
+    padding: 0 0.25rem;
+    outline: none;
+}
+
+.fo-input[type=text]::placeholder, textarea.fo-input::placeholder {
+    color: rgb(var(--fo-fg), 0.625);
+}
+
+.fo-select {
+    background-color: rgb(var(--fo-bg));
+    color: rgb(var(--fo-fg));
+    padding: 0.125rem;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.fo-select optgroup {
+    color: initial;
+}
+
+.fo-input[type=range] {
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+    background: transparent;
+}
+
+.fo-input[type=range]::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: none;
+    background: rgb(var(--fo-bg));
+}
+
+.fo-input[type=range]::-moz-range-track {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: none;
+    height: 1.5rem;
+    background: rgb(var(--fo-bg));
+}
+
+.fo-input[type=range]::-ms-track {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: none;
+    background: rgb(var(--fo-bg));
+}
+
+.fo-input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: linear-gradient(to top, rgb(var(--fo-fg)), rgb(var(--fo-bg)));
+    margin: 0.125rem;
+    height: 1.25rem;
+    width: 0.5rem;
+}
+
+.fo-input[type=range]::-moz-range-thumb {
+    border: none;
+    border-radius: 0;
+    background-image: linear-gradient(to top, rgb(var(--fo-fg)), rgb(var(--fo-bg)));
+    height: 1.25rem;
+    width: 0.5rem;
+}
+
+
+.wrapper-container {
+  height: 100vh;
+  width: 100vw;
+  overflow-y: auto;
+  overflow-x: hidden;
+  perspective: 10px;
+}
+
+
+.header-wrapper {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   height: 100%;
+   transform-style: preserve-3d;
+   z-index: -1;
+}
+
+.vegas-bkg {
+  width: 95%;
+  max-width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  transform: translateZ(-10px) scale(2);
+  border-radius: 6px;
+}
+
+
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typewriter {
+  --caret: currentcolor;
+}
+
+.typewriter::before {
+  content: "";
+  animation: typing 13.5s infinite;
+}
+
+.typewriter::after {
+  content: "";
+  border-right: 1px solid var(--caret);
+  animation: blink 0.5s linear infinite;
+}
+
+.typewriter.thick::after {
+  border-right: 1ch solid var(--caret);
+}
+
+
+@media (prefers-reduced-motion) {
+  .typewriter::after {
+    animation: none;
+  }
+}
+  
+  @keyframes sequencePopup {
+    0%{ content: ""; }
+    4%{ content: "t"; }
+    8%{ content: "to"; }
+    12%{ content: "to F"; }
+    16%{ content: "to Fa"; }
+    20%{ content: "to Fal"; }
+    24%{ content: "to Fall"; }
+    28%{ content: "to Fallo"; }
+    32%{ content: "to Fallou"; }
+    36%{ content: "to Fallout"; }
+    40%{ content: "to Fallout N"; }
+    44%{ content: "to Fallout Ne"; }
+    48%{ content: "to Fallout New"; }
+    52%{ content: "to Fallout New V"; }
+    56%{ content: "to Fallout New Ve"; }
+    60%{ content: "to Fallout New Veg"; }
+    64%{ content: "to Fallout New Vega"; }
+    68%{ content: "to Fallout New Vegas"; }
+    72%{ content: "to Fallout New Vegas,"; }
+    76%{ content: "to Fallout New Vegas,c"; }
+    80%{ content: "to Fallout New Vegas,co"; }
+    84%{ content: "to Fallout New Vegas,cou"; }
+    88%{ content: "to Fallout New Vegas,cour"; }
+    92%{ content: "to Fallout New Vegas,couri"; }
+    96%{ content: "to Fallout New Vegas,courie"; }
+    100%{ content: "to Fallout New Vegas,courier"; }
+  }
+
+
+
+  .typewriter::before {
+    content: "to Fallout New Vegas,courier";
+    animation: sequencePopup 8s linear infinite;
+    animation-delay: .3s;
+    transition: sequencePopup 0.3s ease;
+  }
+
+ 
+  
+
+
+.mc-nv {
+  height: 80%;
+  z-index: 10;
+  position: absolute;
+  margin-top: 40%;
+  transform: translateZ(-5px) scale(1.5);
+}
+
+
+.main {
+    margin-top: 5rem;
+}
+
+.body-wrapper {
+  text-align: center;
+  color: white;
+}
+
+.section-development {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.section-name {
+        color: #1AFF80;
+        font-size: 4rem;
+         font-family: "Rubik Glitch", system-ui;
+         font-weight: 400;
+         font-style: normal;
+}
+
+
+.section-dname {
+    font-family: 'Share Tech Mono', monospace, system-ui;
+    color: #1AFF80;
+    font-size: 3rem;
+    text-align: center;
+}
+
+
+.section-info {
+    font-family: 'Share Tech Mono', monospace, system-ui;
+    color: #1AFF80;
+    font-size: 2rem;
+    text-align: left;
+    letter-spacing: 0.8px;
+    text-indent: 4rem;
+    align-self: center;
+}
+
+.source-link {
+    font-size: inherit;
+    color: inherit;
+
+}
+
+.source-link:visited {
+    color: #1AFF80 ;
+}
+
+.source-link:focus {
+    color: #1AFF80 ;
+}
+
+.cover-wrapper {
+    width: 50rem;
+    height: 62rem;
+    align-self: center;
+    margin-top: 2rem;
+}
+
+.fnv-game-cover {
+  width: 100%;
+  height: 100%;
+  border-radius: 9px;
+  border: 3px solid #1AFF80;
+  object-fit: cover;
+}
+
+.list-item {
+    display: flex;
+    font-size: 2rem;
+    text-align: left;
+    font-family: 'Share Tech Mono', monospace, system-ui;
+}
+
+.fnv-creation-video {
+    align-self: center;
+    border-radius: 5px;
+    border: 5px solid #1AFF80;;
+}
+
+.section-philosophy {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+}
+
+.wrapper-margin {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper-margin2 {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+}
+
+.ch-wrapper {
+    width: 50rem;
+    height: 70rem;
+    align-self: center;
+}
+
+.ch-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 9px;
+  border: 3px solid #1AFF80;
+  object-fit: cover;
+}
+
+.shadow {
+    text-shadow: 2px 2px 5px #1AFF80;
+}
+
+.section-movie {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.fnv-animation {
+    align-self: center;
+    border-radius: 5px;
+    border: 3px solid #1AFF80;
+}
+
+.section-impact {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+}
+
+.section-interesting {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+}
+
+.interest-table {
+  align-self: center;
+  font-family: 'Share Tech Mono', monospace, system-ui;
+  border-collapse: collapse;
+  width: 95%;
+  color: #1AFF80;
+  font-size: 2rem;
+}
+
+td, th {
+  border: 1px solid #1AFF80;
+  border-radius: 4px;
+  text-align: left;
+  padding: 8px;
+}
+
+.table-th {
+     text-shadow: 2px 2px 5px #1AFF80;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-self: center;
+    margin-top: 10rem;
+    width: 95%;
+    height: 55rem;
+    border: 2px solid #1AFF80;
+    border-radius: 5px;
+    align-items: center;
+    justify-items: center;
+}
+
+
+.gif-wrapper {
+    width: 30rem;
+    height: 30rem;
+    align-self: center;
+    clip-path: circle(50% at 50% 50%);
+}
+
+.footer-gif {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
